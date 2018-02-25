@@ -23,7 +23,7 @@ class Praise {
                     this.element.css('-webkit-filter', 'grayscale(0)');
     
                     // 点赞动画
-                    $(".addOne").animate({
+                    $("#addOne").animate({
                         top: 50,
                         opacity: 'toggle'
                     }, 500);
@@ -33,7 +33,7 @@ class Praise {
     
                     // 移除点赞动画
                     setTimeout(() => {
-                        $(".addOne").animate({
+                        $("#addOne").animate({
                             top: 0,
                             opacity: 'toggle'
                         }, 500);

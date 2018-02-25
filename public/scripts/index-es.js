@@ -45,7 +45,7 @@ var Praise = function () {
                         _this.element.css('-webkit-filter', 'grayscale(0)');
 
                         // 点赞动画
-                        $(".addOne").animate({
+                        $("#addOne").animate({
                             top: 50,
                             opacity: 'toggle'
                         }, 500);
@@ -55,7 +55,7 @@ var Praise = function () {
 
                         // 移除点赞动画
                         setTimeout(function () {
-                            $(".addOne").animate({
+                            $("#addOne").animate({
                                 top: 0,
                                 opacity: 'toggle'
                             }, 500);

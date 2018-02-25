@@ -14,8 +14,6 @@ function sr() {
     return (0, _supertest2.default)(_appEs2.default.listen());
 }
 
-// var supertest = request(app.listen(3000));
-
 // 编写测试用例
 describe('测试用例集', function () {
     it('点赞加一接口测试', function (done) {
