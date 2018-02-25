@@ -9,6 +9,6 @@ const {Builder, By, Key, until} = require('selenium-webdriver');
     const _animation = await driver.findElement(By.id('addOne'));
     await driver.wait(_animation.isDisplayed(), 10000);
   } finally {
-    await driver.quit();
+    // await driver.quit();
   }
 })();
