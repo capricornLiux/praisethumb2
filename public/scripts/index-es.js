@@ -12,6 +12,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var f = '';
+
 var Praise = function () {
     /**
      * 构造方法
@@ -33,44 +35,43 @@ var Praise = function () {
             var _this = this;
 
             this.element.click(function () {
-                if (_this.num < 10) {
+                if (f) {
+                    clearTimeout(f);
+                }
+                f = setTimeout(function () {
+                    if (_this.num < 10) {
 
-                    // 处理大拇指的样式
-                    _this.element.css('-webkit-filter', 'grayscale(0)');
+                        // 处理大拇指的样式
+                        _this.element.css('-webkit-filter', 'grayscale(0)');
 
-                    // 点赞动画
-                    $(".addOne").animate({
-                        top: 50,
-                        opacity: 'toggle'
-                    }, 500);
-
-                    // 处理点赞次数加加
-                    _this.num = add(_this.num);
-
-                    // 移除点赞动画
-                    setTimeout(function () {
+                        // 点赞动画
                         $(".addOne").animate({
-                            top: 0,
+                            top: 50,
                             opacity: 'toggle'
                         }, 500);
-                    }, 1000);
 
-                    // 调用后台接口
-                    axios.get('/index/update').then(function (res) {
-                        console.log('res');
-                        console.log(res);
-                    }).catch(function (err) {
-                        console.log('err');
-                        console.log(err);
-                    });
-                } else {
-                    // 大拇指置灰
-                    _this.element.css('-webkit-filter', 'grayscale(1)');
+                        // 处理点赞次数加加
+                        _this.num = add(_this.num);
 
-                    // 清空点击次数
-                    _this.num = 0;
-                }
-                console.log(_this.num);
+                        // 移除点赞动画
+                        setTimeout(function () {
+                            $(".addOne").animate({
+                                top: 0,
+                                opacity: 'toggle'
+                            }, 500);
+                        }, 1000);
+
+                        // 调用后台接口, 修改点赞次数
+                        axios.get('/index/update').then(function (res) {}).catch(function (err) {});
+                    } else {
+                        // 大拇指置灰
+                        _this.element.css('-webkit-filter', 'grayscale(1)');
+
+                        // 清空点击次数
+                        _this.num = 0;
+                    }
+                    console.log(_this.num);
+                }, 500);
             });
         }
     }]);
