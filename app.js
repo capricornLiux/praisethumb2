@@ -34,3 +34,5 @@ app.use(serve(Config.get('staticDir')));
 
 // 监听端口
 app.listen(Config.get('port'));
+
+export default app;
