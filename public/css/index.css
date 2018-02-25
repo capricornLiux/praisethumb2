@@ -1,0 +1,63 @@
+body {
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+}
+
+.main,
+.finger {
+    background-color: rgb(239, 194, 172);
+}
+
+.main {
+    width: 100px;
+    height: 200px;
+    position: relative;
+    margin: 100px;
+}
+
+.finger {
+    position: absolute;
+}
+
+.finger1,
+.finger2,
+.finger3,
+.finger4 {
+    width: 50px;
+    height: 50px;
+    right: -50px;
+    border-radius: 0 25px 25px 0;
+}
+
+.finger1 {
+    top: 0;
+}
+
+.finger2 {
+    top: 50px;
+}
+
+.finger3 {
+    top: 100px;
+}
+
+.finger4 {
+    bottom: 0;
+}
+
+.finger5 {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px 25px 0 0;
+    top: -50px;
+    left: 0;
+}
+
+.addOne{
+    display: none;
+    position: absolute;
+    left: 200px;
+    font-size: 20px;
+    color: pink;
+}

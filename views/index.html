@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block title %}My Page{% endblock %}
+{% block head %}
+{% parent %}
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/systemjs/0.21.0/system.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.17.1/axios.min.js"></script>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../scripts/index.js"></script>
+{% endblock %}
+{% block content %}
+    <div class="main">
+        <div class="finger finger1"></div>
+        <div class="finger finger2"></div>
+        <div class="finger finger3"></div>
+        <div class="finger finger4"></div>
+        <div class="finger finger5"></div>
+
+        <span class="addOne">+1</span>
+    </div>
+
+
+    <!-- 全局add -->
+    <!-- <script type="text/javascript" src="index.js"></script> -->
+    <script type="text/javascript">
+
+
+        // 配置baseUrl
+        SystemJS.config({
+            baseURL: '/scripts',
+        });
+
+        // 加载模块到m
+        SystemJS.import('index-es.js').then(function (m) {
+            //将thumb挂载到jquery的插件
+            $.extend({
+                thumb: m.default.Thumb
+            });
+            // 调用回调函数
+            callBack();
+        });
+
+        function callBack() {
+            var f = new $.thumb(0, $('.main'));
+            f.clickButton();
+        }
+        
+    </script>
+{% endblock %}
